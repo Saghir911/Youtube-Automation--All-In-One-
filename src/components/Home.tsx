@@ -6,8 +6,16 @@ export const Home = () => {
     <>
       <div className="main">
         <div className="top-heading">
-          <h1 className="heading">Choose any Automation</h1>
-          <p className="slogan">Like.Subscriber.Comment</p>
+          <div className="heading-left">
+            <div className="icon">Y</div>
+            <div className="extension-info">
+              <h1 className="heading">AutoFlow</h1>
+              <p className="slogan">Youtube Automation</p>
+            </div>
+          </div>
+           <div className="heading-right">
+            <div className="version">v4.4.1</div>
+          </div>
         </div>
         <div className="selections">
           <button className="option single">Single</button>
