@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Extension Boilerplate with react",
+  "name": "Youtube Automation (All in One)",
   "description": "This extension to ",
   "background": {
     "service_worker": "background.bundle.js"
