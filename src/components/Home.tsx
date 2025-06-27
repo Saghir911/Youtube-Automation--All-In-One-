@@ -9,18 +9,34 @@ export const Home = () => {
           <div className="heading-left">
             <div className="icon">Y</div>
             <div className="extension-info">
-              <h1 className="heading">AutoFlow</h1>
+              <h1 className="heading">AutoFlow Pro</h1>
               <p className="slogan">Youtube Automation</p>
             </div>
           </div>
-           <div className="heading-right">
+          <div className="heading-right">
             <div className="version">v4.4.1</div>
           </div>
         </div>
+        <div className="instructions">
+          <p>Select automation type to continue</p>
+        </div>
         <div className="selections">
-          <button className="option single">Single</button>
-          <button className="option playlist">Playlist</button>
-          <button className="option channel">Channel</button>
+          <div className="single options">
+            <button className="option ">Single Video</button>
+            <span className="info info-1">Automate one home page video</span>
+          </div>
+
+          <div className="playlist options">
+            <button className="option">Playlist</button>
+            <span className="info info-2">Automate one playlist Videos</span>
+          </div>
+
+          <div className="channel options">
+            <button className="option">Channel</button>
+            <span className="info info-2">
+              Automate your favourite channel
+            </span>
+          </div>
         </div>
       </div>
     </>

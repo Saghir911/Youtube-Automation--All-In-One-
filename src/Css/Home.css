@@ -6,27 +6,27 @@
 body,
 html {
   width: 300px;
-  height: 350px;
+  height: 370px;
 }
 
 .main {
   width: 100%;
-  height: 330px;
+  height: 350px;
   padding: 12px 7px;
   display: flex;
   align-items: center;
-  row-gap: 50px;
+  row-gap: 25px;
   flex-direction: column;
   border: 2px solid rgba(211, 211, 211);
   border-radius: 20px;
-  background: rgba(229, 234, 235, 0.6);
+  background: rgb(234, 236, 236);
 }
 
 .top-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 84%;
+  width: 88%;
   height: 65px;
   border-bottom: 1px solid rgb(211, 211, 211);
   line-height: 20px;
@@ -35,10 +35,9 @@ html {
 .heading-right {
   width: max-content;
   height: 100%;
-  /* background: cyan; */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 .heading-left {
   width: max-content;
@@ -46,7 +45,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* background: crimson; */
 }
 
 .icon {
@@ -62,16 +60,16 @@ html {
   border: none;
   border-radius: 8px;
   outline: none;
-  margin-right: 5px;
 }
 .extension-info {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  margin-left: 7px;
   flex-direction: column;
 }
 .heading {
-  font-size: 20px;
+  font-size: 19px;
   color: #0d0d0d;
 }
 .slogan {
@@ -84,41 +82,102 @@ html {
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgb(48, 48, 48);
   outline: none;
   border: none;
-  border: 1px solid rgba(0, 0, 0, 0.6);
+  border: 1px solid silver;
   border-radius: 25px;
-  width: 45px;
-  height: 20px;
-  /* opacity: 0.6; */
+  width: 50px;
+  height: 25px;
+}
+
+.instructions {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .selections {
   width: 100%;
   height: max-content;
   display: flex;
+  row-gap: 5px;
   align-items: center;
-  justify-content: center;
-  gap: 15px;
+  justify-content: space-between;
   flex-direction: column;
 }
+.options {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
 .option {
+  width: 60%;
+  height: 42px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  padding: 10px 50px;
   outline: none;
   border: none;
-  border-radius: 25px;
+  border-radius: 18px;
   background-color: #fff;
   cursor: pointer;
-  transition: all ease 0.3s;
+  opacity: 0.7;
+  transition: transform 0.3s ease, opacity 0.3s ease,
+    scale 0.3s
+      linear(
+        0 0%,
+        0 1.8%,
+        0.01 3.6%,
+        0.03 6.35%,
+        0.07 9.1%,
+        0.13 11.4%,
+        0.19 13.4%,
+        0.27 15%,
+        0.34 16.1%,
+        0.54 18.35%,
+        0.66 20.6%,
+        0.72 22.4%,
+        0.77 24.6%,
+        0.81 27.3%,
+        0.85 30.4%,
+        0.88 35.1%,
+        0.92 40.6%,
+        0.94 47.2%,
+        0.96 55%,
+        0.98 64%,
+        0.99 74.4%,
+        1 86.4%,
+        1 100%
+      );
 }
 .option:hover {
   transform: translateY(-10px);
+  outline: 1px solid rgba(211, 211, 211);
+  opacity: 1;
 }
 .option:active {
-  scale: 0.8;
+  scale: 0.9;
+  outline: 1px solid rgba(211, 211, 211);
+}
+
+.info {
+  font-size: 14px;
+  opacity: 0;
+  scale: 0.9;
+  text-transform: capitalize;
+  transform: translateY(-15px);
+  transition: all ease 0.3s;
+}
+
+.option:hover + .info {
+  color: green;
+  opacity: 1;
+  scale: 1;
+  transform: translateY(-5px);
 }
