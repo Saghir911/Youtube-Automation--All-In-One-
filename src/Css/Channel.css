@@ -1,0 +1,428 @@
+/* Popup.css
+   YouTube Automation Popup Stylesheet
+   — preserves all class names exactly as in your markup */
+
+/* 1. CSS Variables (colors, spacing, typography) */
+:root {
+  --color-background: #ffffff;
+  --color-border: #e5e7eb;
+  --color-border-hover: #d1d5db;
+  --color-muted-bg: #f3f4f6;
+  --color-muted-fg: #6b7280;
+  --color-muted-fg-light: #9ca3af;
+  --color-primary: #3b82f6;
+  --color-primary-light: #dbeafe;
+  --color-red-500: #ef4444;
+  --color-text-default: #111827;
+  --color-text-heading: #1f2937;
+  --color-separator: #e5e7eb;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  --font-base: 14px;
+  --font-sm: 12px;
+  --font-md: 16px;
+
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+}
+
+/* 2. Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+}
+
+
+
+/* 3. Main Container */
+.youtube-automation {
+  width: 320px;
+  height: 480px;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  color: var(--color-text-default);
+  overflow: hidden;
+}
+
+/* 4. Header */
+.you-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-3);
+}
+.you-header-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--color-red-500);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.you-header-icon svg {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+.you-header-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--color-text-heading);
+}
+
+/* Separator */
+.separator {
+  height: 1px;
+  background: var(--color-separator);
+  width: 100%;
+}
+
+/* 5. Search Section */
+.search-section {
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-3);
+}
+.search-row {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+/* Input wrapper + icon */
+.input-wrapper {
+  position: relative;
+  flex: 1;
+}
+.input-icon {
+  position: absolute;
+  left: var(--spacing-1);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--color-muted-fg-light);
+  margin-top: -3px;
+}
+.search-input {
+  width: 100%;
+  height: 40px;
+  padding-left: calc(var(--spacing-3) + 16px + var(--spacing-1));
+  font-size: var(--font-base);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-default);
+}
+.search-input:disabled {
+  background: var(--color-muted-bg);
+  cursor: not-allowed;
+}
+
+/* 6. Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 var(--spacing-4);
+  font-size: var(--font-base);
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn svg {
+  margin-right: var(--spacing-2);
+  width: 16px;
+  height: 16px;
+}
+.btn {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn:disabled {
+  background: var(--color-border);
+  color: var(--color-muted-fg-light);
+  cursor: not-allowed;
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-default);
+}
+.btn-outline:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* 7. Content Area States */
+.content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Idle / Loading / No-Results share layout */
+.idle-state,
+.loading-state,
+.no-results-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-6);
+  text-align: center;
+}
+.idle-state-icon,
+.loading-state-icon,
+.no-results-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-4);
+}
+.idle-state-icon svg,
+.no-results-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--color-muted-fg-light);
+}
+.loading-state-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--color-primary);
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+h3 {
+  margin-bottom: var(--spacing-2);
+  font-size: var(--font-base);
+  font-weight: 500;
+  color: var(--color-text-heading);
+}
+p {
+  font-size: var(--font-sm);
+  color: var(--color-muted-fg);
+}
+.loading-state p {
+  margin-top: var(--spacing-1);
+}
+.no-results-state p {
+  margin-bottom: var(--spacing-4);
+}
+
+/* 8. Results List */
+.results-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 var(--spacing-4);
+}
+.results-info {
+  padding: var(--spacing-2) 0;
+  font-size: var(--font-sm);
+  color: var(--color-muted-fg);
+}
+.channel-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding-bottom: var(--spacing-4);
+}
+.channel-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.channel-item:hover {
+  background: var(--color-muted-bg);
+  border-color: var(--color-border-hover);
+}
+.channel-item.selected {
+  background: var(--color-primary-light);
+  border-color: rgba(59, 130, 246, 0.3);
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.channel-avatar-wrapper {
+  flex-shrink: 0;
+}
+.channel-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.channel-info {
+  flex: 1;
+  min-width: 0;
+}
+.channel-name {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--color-text-heading);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.channel-subs {
+  font-size: var(--font-sm);
+  color: var(--color-muted-fg);
+}
+.channel-select-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(107, 114, 128, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+}
+.channel-item:hover .channel-select-indicator {
+  border-color: var(--color-primary);
+}
+.channel-select-indicator.selected {
+  background: var(--color-primary);
+  border-color: transparent;
+}
+.channel-select-indicator.selected svg {
+  width: 16px;
+  height: 16px;
+  color: #fff;
+  stroke-width: 3;
+}
+
+/* 9. Video Count Overlay */
+.video-count-input-wrapper.center {
+  position: absolute;
+  top: 66px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+  background: var(--color-muted-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-2) var(--spacing-4);
+  box-shadow: 0 1px 4px rgba(59, 130, 246, 0.07);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.video-count-input-wrapper.center:hover,
+.video-count-input-wrapper.center:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+.video-count-label {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-1);
+}
+.video-count-controls {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+}
+.video-count-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.video-count-btn:disabled {
+  background: var(--color-border);
+  color: var(--color-muted-fg-light);
+  cursor: not-allowed;
+}
+.video-count-btn.plus-ten:hover {
+  background: greenyellow;
+  color: #fff;
+}
+.video-count-btn.minus-ten:hover {
+  background: var(--color-red-500);
+  color: #fff;
+}
+.video-count-display {
+  min-width: 36px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-heading);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-1) 14px;
+}
+
+/* 10. Footer */
+.footer {
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-3);
+}
+.footer-btn {
+  width: 100%;
+}
+
+/* 11. Utilities */
+.text-center {
+  text-align: center;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.text-sm {
+  font-size: var(--font-base);
+}
+.text-xs {
+  font-size: var(--font-sm);
+}
+.mb-1 {
+  margin-bottom: var(--spacing-1);
+}
+.mb-2 {
+  margin-bottom: var(--spacing-2);
+}
+.mb-4 {
+  margin-bottom: var(--spacing-4);
+}
+.p-6 {
+  padding: var(--spacing-6);
+}

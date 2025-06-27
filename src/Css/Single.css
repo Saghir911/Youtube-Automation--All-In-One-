@@ -1,0 +1,150 @@
+:root {
+  --bg: #ffffff;
+  --fg: #333333;
+  --accent: #bfa56a;
+  --accent-rgb: 191, 165, 106;
+  --shadow: rgba(0, 0, 0, 0.05);
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
+}
+
+/* Use SF Pro Display if installed locally */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+}
+
+.container {
+  width: 360px;
+  background: var(--bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.header {
+  padding: 24px;
+  text-align: center;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 15px;
+  color: var(--fg);
+  opacity: 0.75;
+}
+
+.main {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Hide the default checkbox */
+.customCheckbox input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.customCheckbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.customCheckbox span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+/* Custom checkbox style */
+.customCheckbox .checkmark {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  margin-right: 6px;
+  vertical-align: middle;
+  position: relative;
+  transition: background 0.2s;
+}
+
+/* Checked state */ 
+.customCheckbox input[type="checkbox"]:checked + .checkmark {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Checkmark tick */
+.customCheckbox .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Show tick when checked */
+.customCheckbox input[type="checkbox"]:checked + .checkmark::after {
+  display: block;
+}
+
+.actionButton {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  padding: 14px 0;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.actionButton:hover {
+  background: rgba(var(--accent-rgb), 0.1);
+  transform: scale(1.02);
+}
+
+.actionButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.4);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

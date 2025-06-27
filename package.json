@@ -16,6 +16,8 @@
     "@hot-loader/react-dom": "^17.0.2",
     "@langchain/groq": "^0.0.9",
     "font-awesome": "^4.7.0",
+    "gsap": "^3.13.0",
+    "lucide-react": "^0.523.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.1",
