@@ -41,7 +41,7 @@ const SingleVideo: React.FC<SingleVideoProps> = ({ onBack }) => {
         <p className="description">Like · Subscribe · Comment — Effortlessly</p>
       </header>
 
-      <main className="main">
+      <main className="single-main">
         <label className="customCheckbox">
           <input
             type="checkbox"
@@ -62,10 +62,7 @@ const SingleVideo: React.FC<SingleVideoProps> = ({ onBack }) => {
         </button>
       </main>
 
-      {error && <div style={{ color: "#c00", marginTop: 8 }}>{error}</div>}
-      {success && (
-        <div style={{ color: "#090", marginTop: 8 }}>{success}</div>
-      )}
+      {error && <div style={{ color: "#c00", marginTop: -25 }}>{error}</div>}
     </div>
   );
 };

@@ -1,18 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body,
-html {
-  width: 300px;
-  height: 370px;
-}
-
 .main {
-  width: 100%;
+  width: 300px;
   height: 350px;
   padding: 12px 7px;
+  margin: 15px;
   display: flex;
   align-items: center;
   row-gap: 25px;
@@ -26,9 +16,9 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 88%;
+  width: 85%;
   height: 65px;
-  border-bottom: 1px solid rgb(211, 211, 211);
+  border-bottom: 1px solid rgb(179, 179, 179);
   line-height: 20px;
 }
 

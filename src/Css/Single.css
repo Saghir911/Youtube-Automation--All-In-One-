@@ -10,28 +10,23 @@
   }
 }
 
-/* Use SF Pro Display if installed locally */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, sans-serif;
-}
-
 .container {
-  width: 360px;
+  width: 350px;
+  height: 250px;
   background: var(--bg);
   border-radius: 16px;
   box-shadow: 0 8px 24px var(--shadow);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   animation: fadeIn 0.4s ease-out;
 }
 
 .header {
-  padding: 24px;
+  /* padding: 10px; */
   text-align: center;
 }
 
@@ -48,8 +43,9 @@
   opacity: 0.75;
 }
 
-.main {
+.single-main {
   padding: 24px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,12 +58,11 @@
   width: 0;
   height: 0;
   position: absolute;
+  margin-bottom: 20px;
 }
 .customCheckbox {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
 }
 .customCheckbox span {
   font-size: 14px;
@@ -89,7 +84,7 @@
   transition: background 0.2s;
 }
 
-/* Checked state */ 
+/* Checked state */
 .customCheckbox input[type="checkbox"]:checked + .checkmark {
   background: var(--accent);
   border-color: var(--accent);
@@ -119,6 +114,7 @@
   color: var(--accent);
   border: 2px solid var(--accent);
   padding: 14px 0;
+  margin-top: 10px;
   width: 100%;
   border-radius: 12px;
   font-size: 15px;
